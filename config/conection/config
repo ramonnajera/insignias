@@ -1,0 +1,9 @@
+{
+    "conection":{
+        "server" : "postgresql",
+        "user" : "admin",
+        "password" : "admin",
+        "database" : "dev",
+        "port" : "5432"
+    }
+}
