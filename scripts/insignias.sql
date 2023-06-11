@@ -13,9 +13,9 @@ DROP TABLE IF EXISTS usuarios;
 -- usuario_tipo
 CREATE TABLE usuarios (
     usuario_id      INT GENERATED ALWAYS AS IDENTITY,
-    usuario_nombre  VARCHAR (200) UNIQUE NOT NULL,
+    usuario_nombre  VARCHAR (200) NOT NULL,
     usuario_pass    VARCHAR (100) NOT NULL,
-    usuario_correo  VARCHAR (200) NOT NULL,
+    usuario_correo  VARCHAR (200) UNIQUE NOT NULL,
     usuario_activo  BOOLEAN NOT NULL DEFAULT FALSE,
     usuario_area    VARCHAR (200) NOT NULL,
     usuario_tipo    VARCHAR (50) NOT NULL DEFAULT 'user',

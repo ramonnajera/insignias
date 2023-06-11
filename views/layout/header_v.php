@@ -81,12 +81,11 @@
             </div>
 
             <?php if(isset($_SESSION['identidad'])):?>
-            <a href="<?=htmlspecialchars(base_url . "User/logout")?>" class="btn btn-warning mx-3">Salir</a>
+            <a href="<?=htmlspecialchars(base_url . "User/logout")?>" class="btn btn-warning mx-3"><i class="fa-solid fa-arrow-right-from-bracket"></i> Salir</a>
             <?php elseif(!isset($_SESSION['identidad']) && !isset($_SESSION['admin'])):?>
             <button data-open-modal class="btn btn-primary mx-3">Login</button>
             <a href="<?=htmlspecialchars(base_url . "Page/registro")?>"
                 class="block py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-white">Registro</a>
-
             <dialog data-modal>
                 <p class="text-2xl mb-5">Login</p>
                 <form action="<?=htmlspecialchars(base_url . "User/login")?>" method="post">
@@ -105,7 +104,6 @@
                 </form>
             </dialog>
             <?php endif;?>
-
             <button data-collapse-toggle="mobile-menu-2" type="button"
 				class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
 				aria-controls="mobile-menu-2" aria-expanded="true">
@@ -124,6 +122,17 @@
         </div>
         <div class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
             <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                <?php if(isset($_SESSION['identidad'])):?>
+                <li>
+                    <a href="<?=htmlspecialchars(base_url)?>"
+                        class="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
+                        aria-current="page">Mis cursos</a>
+                </li>
+                <li>
+                    <a href="<?=htmlspecialchars(base_url . "Page/carreras")?>"
+                        class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Carreras</a>
+                </li>
+                <?php elseif(!isset($_SESSION['identidad']) && !isset($_SESSION['admin'])):?>
                 <li>
                     <a href="#"
                         class="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
@@ -131,24 +140,9 @@
                 </li>
                 <li>
                     <a href="#"
-                        class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Company</a>
+                        class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Otros</a>
                 </li>
-                <li>
-                    <a href="#"
-                        class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Marketplace</a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Features</a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Team</a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-                </li>
+                <?php endif;?>
             </ul>
         </div>
     </div>

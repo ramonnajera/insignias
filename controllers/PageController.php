@@ -8,4 +8,9 @@ class PageController{
     public function registro(){
         require_once 'views/page/registro_v.php';
     }
+
+    public function carreras(){
+        utils::isAdmin();
+        require_once 'views/page/carreras_v.php';
+    }   
 }
