@@ -18,7 +18,10 @@
             @apply bg-purple-700 hover:bg-purple-800 text-white outline-none;
         }
         .btn-secundary{
-            @apply border-2 border-neutral-800 hover:bg-purple-800 text-neutral-800 outline-none hover:border-neutral-800 hover:bg-neutral-500 hover:bg-opacity-10;
+            @apply border-2 border-neutral-800 text-neutral-800 outline-none hover:border-neutral-800 hover:bg-neutral-500 hover:bg-opacity-10;
+        }
+        .btn-warning{
+            @apply border-2 bg-white text-red-600 border-red-600 outline-none hover:bg-red-600 hover:text-white;
         }
         dialog::backdrop {
             @apply bg-neutral-700/50;
@@ -28,6 +31,37 @@
         }
         .input-label{
             @apply: block mb-2 text-sm font-medium text-gray-900 dark:text-white;
+        }
+        .fade-in-right {
+            animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        }
+
+        @keyframes fade-in-right {
+            0% {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .fade-out-right {
+            animation: fade-out-right 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        @keyframes fade-out-right {
+            0% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(50px);
+                opacity: 0;
+            }
         }
     }
     </style>
@@ -46,14 +80,19 @@
                 <span></span>
             </div>
 
-            <button data-open-modal class="btn btn-primary">Login</button>
+            <?php if(isset($_SESSION['identidad'])):?>
+            <a href="<?=htmlspecialchars(base_url . "User/logout")?>" class="btn btn-warning mx-3">Salir</a>
+            <?php elseif(!isset($_SESSION['identidad']) && !isset($_SESSION['admin'])):?>
+            <button data-open-modal class="btn btn-primary mx-3">Login</button>
+            <a href="<?=htmlspecialchars(base_url . "Page/registro")?>"
+                class="block py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-white">Registro</a>
 
             <dialog data-modal>
                 <p class="text-2xl mb-5">Login</p>
                 <form action="<?=htmlspecialchars(base_url . "User/login")?>" method="post">
                     <div class="mb-3">
-                        <label for="user" class="input-label">Username</label>
-                        <input type="text" id="user" name="user" class="input-text" placeholder="rnajera" required>
+                        <label for="user" class="input-label">Correo</label>
+                        <input type="email" id="user" name="user" class="input-text" placeholder="rnajera@uach.mx" required>
                     </div>
                     <div class="mb-5">
                         <label for="pass" class="input-label">Contraseña</label>
@@ -65,6 +104,7 @@
                     </div>
                 </form>
             </dialog>
+            <?php endif;?>
 
             <button data-collapse-toggle="mobile-menu-2" type="button"
 				class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -113,3 +153,4 @@
         </div>
     </div>
 </nav>
+<?php require_once dirname(__FILE__).'../../includes/appmessages_v.php';?>

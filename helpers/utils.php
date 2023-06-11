@@ -73,7 +73,7 @@ class Utils{
             }
         }
 
-        if($type == 'emailp'){
+        if($type == 'email'){
             if(strlen($data) <= 50 && strlen($data) >=1){
                 $data = filter_var($data, FILTER_VALIDATE_EMAIL);
             }elseif(strlen($data) == 0){

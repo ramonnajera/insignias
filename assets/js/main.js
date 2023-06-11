@@ -9,4 +9,13 @@ window.addEventListener('load', function() {
     closeButton.addEventListener("click", () =>{
         modal.close()
     })
+
+    setTimeout(() => {
+        const box = document.getElementById('notification');
+      
+        // box.style.display = 'none';
+        box.classList.add('fade-out-right');
+        box.classList.remove('fade-in-right');
+      
+    }, 3000)
 });

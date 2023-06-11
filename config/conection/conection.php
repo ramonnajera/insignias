@@ -17,8 +17,6 @@ class conection{
             $this->port = $value['port'];
         }
 
-        // $this->conection = pg_connect("host=$this->server dbname=$this->database user=$this->user password=$this->password");
-
         try {
             $this->conection = new PDO("pgsql:host=$this->server;port=$this->port;dbname=$this->database", $this->user, $this->password);
 
@@ -50,6 +48,7 @@ class conection{
         }
 
         $stmt->execute();
+        
         $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         }catch(\PDOException $e){
