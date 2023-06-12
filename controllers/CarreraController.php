@@ -10,6 +10,26 @@ class CarreraController{
             $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] :false;
             $img = empty($_FILES['img']['name']) == 0 ? $_FILES['img'] :false;
             $insignia = empty($_FILES['insignia']['name']) == 0 ? $_FILES['insignia'] :false;
+
+            $nombre = Utils::limpiarData($nombre,"texto");
+            $descripcion = Utils::limpiarData($descripcion,"texto");
+
+            $nombre = filter_var($nombre, FILTER_VALIDATE_REGEXP, array("options" => array("regexp"=>"/^[\wáéíóúÑñ\s]+$/")));
+            $descripcion = filter_var($descripcion, FILTER_VALIDATE_REGEXP, array("options" => array("regexp"=>"/^[\wáéíóúÑñ\s]+$/")));
+
+            if ($nombre && $descripcion) {
+                $_CarreraModel = new CarreraModel();
+                $subido = $this->subirImagen($img);
+                $subido2 = $this->subirImagen($insignia);
+
+                if($subido["subido"] && $subido2["subido"]){
+                    $_CarreraModel->setCarrera($img["nombre"]);
+                    $_CarreraModel->setCarrera($insignia["nombre"]);
+                }
+            }else{
+                $_respuestas->error_u00001();
+            }
+
             var_dump($img);
             die();
         }else{
