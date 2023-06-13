@@ -1,7 +1,10 @@
 <?php
+include_once 'models/CarreraModel.php';
 
 class PageController{
     public function index(){
+        $_CarreraModel = new CarreraModel();
+        $carreras = $_CarreraModel->getAll();
         require_once 'views/page/home_v.php';
     }
 
@@ -11,6 +14,8 @@ class PageController{
 
     public function carreras(){
         utils::isAdmin();
+        $_CarreraModel = new CarreraModel();
+        $carreras = $_CarreraModel->getAll();
         require_once 'views/page/carreras_v.php';
     }   
 }

@@ -39,6 +39,7 @@ CREATE TABLE carreras (
 
 -- cursos
 -- curso_id
+-- usuario_id
 -- carrera_id
 -- curso_nombre
 -- curso_descripcion

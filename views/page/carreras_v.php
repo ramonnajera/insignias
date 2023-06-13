@@ -29,4 +29,26 @@
             </form>
         </dialog>
     </div>
+    <section>
+        <p class="mb-2 mt-0 text-5xl font-medium leading-tight">Carreras</p>
+        <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
+        <thead class="bg-gray-50">
+            <tr>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descripcion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($carreras as $carrera):?>
+            <tr class="border-b hover:bg-orange-100 bg-gray-100">
+            <td class="py-4 px-6 border-b border-gray-200"><?=$carrera["carrera_id"]?></td>
+            <td class="py-4 px-6 border-b border-gray-200"><?=$carrera["carrera_nombre"]?></td>
+            <td class="py-4 px-6 border-b border-gray-200"><?=$carrera["carrera_descripcion"]?></td>
+            </tr>
+            <?php endforeach;?>
+        </tbody>
+        </table>
+
+    </section>
 </div>

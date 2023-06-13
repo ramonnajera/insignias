@@ -1,14 +1,14 @@
 <?php
-include_once 'models/CarreraModel.php';
+include_once 'models/CursoModel.php';
 
-class CarreraController{
+class CursoController{
     public function add(){
         $_respuestas = new responses();
 
         if (isset($_POST)) {
+            $carrera = isset($_POST['carrera']) ? $_POST['carrera'] :false;
             $nombre = isset($_POST['nombre']) ? $_POST['nombre'] :false;
             $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] :false;
-            $img = empty($_FILES['img']['name']) == 0 ? $_FILES['img'] :false;
             $insignia = empty($_FILES['insignia']['name']) == 0 ? $_FILES['insignia'] :false;
 
             $nombre = Utils::limpiarData($nombre,"texto");
@@ -17,24 +17,23 @@ class CarreraController{
             $nombre = filter_var($nombre, FILTER_VALIDATE_REGEXP, array("options" => array("regexp"=>"/^[\wáéíóúÑñ\s]+$/")));
             $descripcion = filter_var($descripcion, FILTER_VALIDATE_REGEXP, array("options" => array("regexp"=>"/^[\wáéíóúÑñ\s]+$/")));
 
-            if ($nombre && $descripcion) {
-                $_CarreraModel = new CarreraModel();
-                $subido = $this->subirImagen($img);
-                $subido2 = $this->subirImagen($insignia);
+            if ($carrera && $nombre && $descripcion) {
+                $_CursoModel = new CursoModel();
+                $subido = $this->subirImagen($insignia);
 
-                if($subido["subido"] && $subido2["subido"]){
-                    $_CarreraModel->setCarrera_img($subido["nombre"]);
-                    $_CarreraModel->setCarrera_insignia($subido2["nombre"]);
-                    $_CarreraModel->setCarrera_nombre($nombre);
-                    $_CarreraModel->setCarrera_descripcion($descripcion);
+                if($subido["subido"]){
+                    $_CursoModel->setUsuario_id($_SESSION["identidad"][0]["usuario_id"]);
+                    $_CursoModel->setCarrera_id($carrera);
+                    $_CursoModel->setCurso_nombre($nombre);
+                    $_CursoModel->setCurso_descripcion($descripcion);
+                    $_CursoModel->setCurso_insignia($subido["nombre"]);
                     
-                    $save = $_CarreraModel->save();
+                    $save = $_CursoModel->save();
 
                     if ($save) {
                         $_respuestas->response["result"]["mensaje"] = "Registro correcto";
                     }else{
                         unlink("assets/img/images/" . $subido["nombre"]);
-                        unlink("assets/img/images/" . $subido2["nombre"]);
                         $_respuestas->error_u00001();
                     }
                 }else{
@@ -54,7 +53,7 @@ class CarreraController{
         ];
         header("Location:".base_url."Page/carreras");
     }
-
+    
     public function subirImagen($archivo){
         Utils::isAdmin();
         $dir ="assets/img/images/";
