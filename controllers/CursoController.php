@@ -51,7 +51,7 @@ class CursoController{
             "status" => $_respuestas->response["status"],
             "mensaje" => $_respuestas->response["result"]["mensaje"]
         ];
-        header("Location:".base_url."Page/carreras");
+        header("Location:".base_url);
     }
     
     public function subirImagen($archivo){

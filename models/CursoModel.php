@@ -154,9 +154,29 @@ class CursoModel extends conection{
         return $this;
     }
 
+    public function getAll(){
+        $sql = "SELECT * FROM cursos";
+
+        $carreras = parent::obtenerDatos($sql);
+        
+        return $carreras;
+    }
+
+    public function getMisAll(){
+        $sql = "SELECT * FROM carreras INNER JOIN cursos ON carreras.carrera_id = cursos.carrera_id WHERE usuario_id=:usuario_id";
+
+        $data = [
+            "usuario_id" => $this->getUsuario_id(),
+        ];
+
+        $carreras = parent::obtenerDatos($sql, $data);
+        
+        return $carreras;
+    }
+
     public function save(){
 
-        $sql = "INSERT INTO carreras (usuario_id, carrera_id, curso_nombre, curso_descripcion, curso_insignia) VALUES(:usuario_id, :carrera_id, :curso_nombre, :curso_descripcion, :curso_insignia);";
+        $sql = "INSERT INTO cursos (usuario_id, carrera_id, curso_nombre, curso_descripcion, curso_insignia) VALUES(:usuario_id, :carrera_id, :curso_nombre, :curso_descripcion, :curso_insignia);";
 
         $data = [
             "usuario_id" => $this->getUsuario_id(),

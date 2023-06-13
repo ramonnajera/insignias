@@ -49,6 +49,5 @@
             <?php endforeach;?>
         </tbody>
         </table>
-
     </section>
 </div>

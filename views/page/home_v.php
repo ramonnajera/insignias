@@ -33,6 +33,33 @@
             </form>
         </dialog>
     </div>
+    <section>
+        <p class="mb-2 mt-0 text-5xl font-medium leading-tight">Carreras</p>
+        <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
+        <thead class="bg-gray-50">
+            <tr>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Curso</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Carrera</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descripcion</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($miscursos as $data):?>
+            <tr class="border-b hover:bg-orange-100 bg-gray-100">
+            <td class="py-4 px-6 border-b border-gray-200"><?=$data["curso_id"]?></td>
+            <td class="py-4 px-6 border-b border-gray-200"><?=$data["carrera_nombre"]?></td>
+            <td class="py-4 px-6 border-b border-gray-200"><?=$data["curso_nombre"]?></td>
+            <td class="py-4 px-6 border-b border-gray-200"><?=$data["curso_descripcion"]?></td>
+            <td class="py-4 px-6 border-b border-gray-200">
+                <a href="<?=base_url?>Participantes/all?id=<?=$data["curso_id"]?>" class="btn btn-primary"><i class="fa-solid fa-users"></i></a>
+            </td>
+            </tr>
+            <?php endforeach;?>
+        </tbody>
+        </table>
+    </section>
     <?php elseif(isset($_SESSION['identidad']) && isset($_SESSION['user'])):?>
     <?php endif;?>
 </div>
