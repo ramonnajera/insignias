@@ -64,7 +64,9 @@ CREATE TABLE cursos (
 
 -- participantes
 -- participante_id
+-- usuario_id
 -- curso_id
+-- participante_terminado
 CREATE TABLE participantes (
     participante_id         INT GENERATED ALWAYS AS IDENTITY,
     usuario_id              INT NOT NULL,

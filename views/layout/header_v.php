@@ -11,11 +11,21 @@
 
     <style type="text/tailwindcss">
     @layer utilities {
+        .bg-uach{
+            background-color: #371e49;
+        }
+        .social {
+            cursor: pointer;
+            border-radius: 9999px;
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
+        }
         .btn{
-            @apply px-6 py-2 focus:ring-4 shadow-lg transform active:scale-75 transition-transform ease-in-out font-medium;
+            @apply px-4 py-2 focus:ring-4 shadow-lg transform active:scale-75 transition-transform ease-in-out font-medium rounded-md;
         }
         .btn-primary{
-            @apply bg-purple-700 hover:bg-purple-800 text-white outline-none;
+            @apply bg-purple-600 hover:bg-purple-700 text-white outline-none;
         }
         .btn-secundary{
             @apply border-2 border-neutral-800 text-neutral-800 outline-none hover:border-neutral-800 hover:bg-neutral-500 hover:bg-opacity-10;
@@ -68,10 +78,10 @@
     
     <title>Insignias UACH</title>
 </head>
-<body class="font-[Poppins]">
+<body class="font-[Poppins] min-h-screen flex flex-col justify-start">
 <nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-        <a href="#" class="flex items-center">
+        <a href="<?=base_url?>" class="flex items-center">
             <!-- <img src="https://www.svgrepo.com/show/499962/music.svg" class="h-6 mr-3 sm:h-9" alt="Landwind Logo"> -->
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Insignias</span>
         </a>
@@ -82,7 +92,7 @@
 
             <?php if(isset($_SESSION['identidad'])):?>
             <a href="<?=htmlspecialchars(base_url . "User/logout")?>" class="btn btn-warning mx-3"><i class="fa-solid fa-arrow-right-from-bracket"></i> Salir</a>
-            <?php elseif(!isset($_SESSION['identidad']) && !isset($_SESSION['admin'])):?>
+            <?php elseif(!isset($_SESSION['identidad'])):?>
             <button data-open-modal class="btn btn-primary mx-3">Login</button>
             <a href="<?=htmlspecialchars(base_url . "Page/registro")?>"
                 class="block py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-white">Registro</a>
@@ -123,6 +133,7 @@
         <div class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
             <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                 <?php if(isset($_SESSION['identidad'])):?>
+                    <?php if(isset($_SESSION['admin'])):?>
                 <li>
                     <a href="<?=htmlspecialchars(base_url)?>"
                         class="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
@@ -132,7 +143,18 @@
                     <a href="<?=htmlspecialchars(base_url . "Page/carreras")?>"
                         class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Carreras</a>
                 </li>
-                <?php elseif(!isset($_SESSION['identidad']) && !isset($_SESSION['admin'])):?>
+                    <?php elseif(isset($_SESSION['user'])):?>
+                        <li>
+                            <a href="<?=htmlspecialchars(base_url)?>"
+                            class="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
+                            aria-current="page">Mis insignias</a>
+                        </li>
+                        <li>
+                            <a href="<?=htmlspecialchars(base_url . "Curso/alls")?>"
+                                class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Todos los cursos</a>
+                        </li>
+                    <?php endif;?>
+                <?php elseif(!isset($_SESSION['identidad'])):?>
                 <li>
                     <a href="#"
                         class="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"

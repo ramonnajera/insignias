@@ -1,5 +1,5 @@
 <?php if (isset($_SESSION['respuesta'])): ?>
-    <div class="relative w-full" id="notification">
+    <div class="relative w-full z-50" id="notification">
     <div class="absolute top-0 right-5">
         <div class="flex shadow fade-in-right" role="alert">
             <div class="<?=$_SESSION['respuesta']['status'] == "error"  ? "bg-red-400": "bg-green-400"?>  text-center p-2">

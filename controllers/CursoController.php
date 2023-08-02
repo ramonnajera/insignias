@@ -81,4 +81,21 @@ class CursoController{
 
         return $resultado;
     }
+
+    public function all(){
+        $carrera = isset($_GET['id']) ? $_GET['id'] :false;
+        if($carrera){
+            $_CursoModel = new CursoModel();
+            $_CursoModel->setCarrera_id($carrera);
+            $cursos = $_CursoModel->getOne();
+        }
+        require_once 'views/page/cursos_v.php';
+    }
+
+    public function alls(){
+        $_CursoModel = new CursoModel();
+        $_CursoModel->setUsuario_id($_SESSION["identidad"][0]["usuario_id"]);
+        $cursos = $_CursoModel->getAlls();
+        require_once 'views/page/cursos_v.php';
+    }
 }

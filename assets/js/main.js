@@ -11,10 +11,14 @@ window.addEventListener('load', function() {
     const closeButton = document.querySelector("[data-close-modal]")
     const modal = document.querySelector("[data-modal]")
 
-    openButton.addEventListener("click", () =>{
-        modal.showModal()
-    })
-    closeButton.addEventListener("click", () =>{
-        modal.close()
-    })
+    if (openButton) {
+        openButton.addEventListener("click", () =>{
+            modal.showModal()
+        })
+    }
+    if (openButton) {
+        closeButton.addEventListener("click", () =>{
+            modal.close()
+        })
+    }
 });

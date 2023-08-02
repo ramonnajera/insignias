@@ -80,13 +80,12 @@ class conection{
     public function nonQuery($query, $datos){
         try{
         $stmt = $this->conection->prepare($query);
-
+        
         foreach ($datos as $key=>$dato) {
             $stmt->bindValue($key,$dato);    
         }
 
         $stmt->execute();
-
         $afectadas = (int) $stmt->rowCount();
 
         }catch(\PDOException $e){

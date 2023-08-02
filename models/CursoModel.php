@@ -155,11 +155,34 @@ class CursoModel extends conection{
     }
 
     public function getAll(){
-        $sql = "SELECT * FROM cursos";
+        $sql = "SELECT * FROM carreras INNER JOIN cursos ON carreras.carrera_id = cursos.carrera_id";
 
-        $carreras = parent::obtenerDatos($sql);
+        $cursos = parent::obtenerDatos($sql);
         
-        return $carreras;
+        return $cursos;
+    }
+
+    public function getAlls(){
+        $sql = "SELECT cursos.curso_id, curso_nombre, curso_descripcion, carrera_nombre, participantes.usuario_id FROM carreras 
+                INNER JOIN cursos ON carreras.carrera_id = cursos.carrera_id 
+                LEFT JOIN participantes ON cursos.curso_id = participantes.curso_id;";
+
+
+        $cursos = parent::obtenerDatos($sql);
+        
+        return $cursos;
+    }
+
+    public function getOne(){
+        $sql = "SELECT * FROM carreras INNER JOIN cursos ON carreras.carrera_id = cursos.carrera_id WHERE cursos.carrera_id = :carrera_id";
+
+        $data = [
+            "carrera_id" => $this->getCarrera_id(),
+        ];
+
+        $cursos = parent::obtenerDatos($sql, $data);
+        
+        return $cursos;
     }
 
     public function getMisAll(){
@@ -169,9 +192,9 @@ class CursoModel extends conection{
             "usuario_id" => $this->getUsuario_id(),
         ];
 
-        $carreras = parent::obtenerDatos($sql, $data);
+        $cursos = parent::obtenerDatos($sql, $data);
         
-        return $carreras;
+        return $cursos;
     }
 
     public function save(){
