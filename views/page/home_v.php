@@ -7,7 +7,7 @@
             <form action="<?=htmlspecialchars(base_url . "Curso/add")?>" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="carrera" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ruta de aprendisaje</label>
-                    <select id="carrera" name="carrera" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <select id="carrera" name="carrera" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                         <?php foreach($carreras as $carrera):?>
                         <option value="<?=$carrera["carrera_id"]?>"><?=$carrera["carrera_nombre"]?></option>
                         <?php endforeach;?>
@@ -22,8 +22,13 @@
                     <textarea id="descripcion" name="descripcion" class="input-text" rows="4" placeholder="Aqui descripcion..." required></textarea>
                 </div>
                 <div class="mb-3"> 
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="insignia">Insignia del curso</label>
-                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="insignia_help" id="insignia" name="insignia" type="file" required>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 " for="insignia">Imagen del Curso</label>
+                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none " aria-describedby="curso_help" id="curso_img" name="curso_img" type="file" required>
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="curso_help">PNG (MAX. 800x400px).</p>
+                </div>
+                <div class="mb-3"> 
+                    <label class="block mb-2 text-sm font-medium text-gray-900 " for="insignia">Insignia del curso</label>
+                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none " aria-describedby="insignia_help" id="insignia" name="insignia" type="file" required>
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="insignia_help">PNG (MAX. 800x400px).</p>
                 </div>
                 <div>
