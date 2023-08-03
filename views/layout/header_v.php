@@ -147,7 +147,7 @@
                 </li>
                 <li>
                     <a href="<?=htmlspecialchars(base_url . "Page/carreras")?>"
-                        class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] lg:p-0">Carreras</a>
+                        class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] lg:p-0">Rutas de aprendizaje</a>
                 </li>
                     <?php elseif(isset($_SESSION['user'])):?>
                         <li>

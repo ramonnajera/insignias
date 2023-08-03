@@ -9,6 +9,7 @@ class CursoController{
             $carrera = isset($_POST['carrera']) ? $_POST['carrera'] :false;
             $nombre = isset($_POST['nombre']) ? $_POST['nombre'] :false;
             $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] :false;
+            $img = empty($_FILES['img']['name']) == 0 ? $_FILES['img'] :false;
             $insignia = empty($_FILES['insignia']['name']) == 0 ? $_FILES['insignia'] :false;
 
             $nombre = Utils::limpiarData($nombre,"texto");
@@ -19,14 +20,16 @@ class CursoController{
 
             if ($carrera && $nombre && $descripcion) {
                 $_CursoModel = new CursoModel();
-                $subido = $this->subirImagen($insignia);
-
-                if($subido["subido"]){
+                $subido = $this->subirImagen($img);
+                $subido2 = $this->subirImagen($insignia);
+                
+                if($subido["subido"] && $subido2["subido"]){
                     $_CursoModel->setUsuario_id($_SESSION["identidad"][0]["usuario_id"]);
                     $_CursoModel->setCarrera_id($carrera);
                     $_CursoModel->setCurso_nombre($nombre);
                     $_CursoModel->setCurso_descripcion($descripcion);
-                    $_CursoModel->setCurso_insignia($subido["nombre"]);
+                    $_CursoModel->setCurso_img($subido["nombre"]);
+                    $_CursoModel->setCurso_insignia($subido2["nombre"]);
                     
                     $save = $_CursoModel->save();
 
@@ -34,6 +37,7 @@ class CursoController{
                         $_respuestas->response["result"]["mensaje"] = "Registro correcto";
                     }else{
                         unlink("assets/img/images/" . $subido["nombre"]);
+                        unlink("assets/img/images/" . $subido2["nombre"]);
                         $_respuestas->error_u00001();
                     }
                 }else{

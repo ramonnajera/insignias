@@ -220,7 +220,7 @@ class CursoModel extends conection{
 
     public function save(){
 
-        $sql = "INSERT INTO cursos (usuario_id, carrera_id, curso_nombre, curso_descripcion, curso_insignia) VALUES(:usuario_id, :carrera_id, :curso_nombre, :curso_descripcion, :curso_insignia);";
+        $sql = "INSERT INTO cursos (usuario_id, carrera_id, curso_nombre, curso_descripcion, curso_insignia, curso_img) VALUES(:usuario_id, :carrera_id, :curso_nombre, :curso_descripcion, :curso_insignia, :curso_img);";
 
         $data = [
             "usuario_id" => $this->getUsuario_id(),
@@ -228,8 +228,10 @@ class CursoModel extends conection{
             "curso_nombre" => $this->getCurso_nombre(),
             "curso_descripcion" => $this->getCurso_descripcion(),
             "curso_insignia" => $this->getCurso_insignia(),
+            "curso_img" => $this->getCurso_img(),
         ];
 
+        
         $save = parent::nonQuery($sql, $data);
 
         $result = false;

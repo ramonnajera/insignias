@@ -10,6 +10,8 @@
                     <h2 class="px-4 font-bold text-lg mb-2 "><?=$curso["curso_nombre"]?></h2>
                     <!-- Description -->
                     <p class="px-4 text-sm text-gray-600 line-clamp-3"><?=$curso["curso_descripcion"]?></p>
+                    <!-- Description -->
+                    <img class="h-40 object-cover rounded-xl" h-40 object-cover rounded-xl" src="<?=base_url?>assets/img/images/<?=$curso["curso_img"]?>" alt="">
                 </div>
                 <!-- CTA -->
                 <div class="flex flex-wrap mt-auto pt-3">
