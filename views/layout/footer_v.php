@@ -1,5 +1,5 @@
-<footer class="bg-uach mt-auto">
-    <div class="container mx-auto md:grid md:grid-cols-2 gap-3 text-white py-10">
+<footer class="bg-[#371e49] mt-auto">
+    <div class="container mx-auto md:grid md:grid-cols-2 gap-3 text-white py-5">
         <div class="grid grid-rows-2 grid-flow-col gap-10 text-center justify-center md:text-left md:justify-start">
             <div>
                 <img class="w-64 mb-2" src="<?=base_url?>assets/img/uach_Plus.svg" alt="">
@@ -30,7 +30,7 @@
                 <a class="link" href="https://uach.mx/radio/">Radio Universidad</a>
             </div>
         </div>
-        <div class="grid md:grid-cols-2 gap-4 col-span-2 mt-10">
+        <div class="grid md:grid-cols-2 gap-4 col-span-2 ">
             <div class="mx-auto md:m-0">
                 <ul class="flex space-x-2">
                     <li><img class="w-7 social hover:bg-blue-800" src="<?=base_url?>assets/img/facebook.png" alt=""></li>

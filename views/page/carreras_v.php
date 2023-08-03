@@ -1,8 +1,8 @@
 <div class="container mx-auto mt-5">
     <div class="flex justify-end">
-        <button data-open-modal class="btn btn-primary mx-3">Nueva carrera</button>
+        <button data-open-modal class="btn btn-primary mx-3">Nueva ruta de aprendizaje</button>
         <dialog data-modal>
-            <p class="text-2xl mb-5">Nueva carrera</p>
+            <p class="text-2xl mb-5">Nueva ruta de aprendizaje</p>
             <form action="<?=htmlspecialchars(base_url . "Carrera/add")?>" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="nombre" class="input-label">Nombre</label>
@@ -30,7 +30,7 @@
         </dialog>
     </div>
     <section>
-        <p class="mb-2 mt-0 text-5xl font-medium leading-tight">Carreras</p>
+        <p class="mb-2 mt-0 text-5xl font-medium leading-tight">Rutas de aprendizaje</p>
         <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
         <thead class="bg-gray-50">
             <tr>

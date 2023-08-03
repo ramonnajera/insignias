@@ -51,6 +51,7 @@ CREATE TABLE cursos (
     carrera_id          INT NOT NULL,
     curso_nombre        VARCHAR (200) NOT NULL,
     curso_descripcion   VARCHAR (500) NOT NULL,
+    curso_img           VARCHAR (300) NOT NULL,
     curso_insignia      VARCHAR (300) NOT NULL,
     curso_datec         TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(curso_id),

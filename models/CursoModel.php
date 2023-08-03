@@ -7,6 +7,7 @@ class CursoModel extends conection{
     private $carrera_id;
     private $curso_nombre;
     private $curso_descripcion;
+    private $curso_img;
     private $curso_insignia;
     private $curso_datec;
 
@@ -154,6 +155,26 @@ class CursoModel extends conection{
         return $this;
     }
 
+    /**
+     * Get the value of curso_img
+     */ 
+    public function getCurso_img()
+    {
+        return $this->curso_img;
+    }
+
+    /**
+     * Set the value of curso_img
+     *
+     * @return  self
+     */ 
+    public function setCurso_img($curso_img)
+    {
+        $this->curso_img = $curso_img;
+
+        return $this;
+    }
+
     public function getAll(){
         $sql = "SELECT * FROM carreras INNER JOIN cursos ON carreras.carrera_id = cursos.carrera_id";
 
@@ -219,4 +240,6 @@ class CursoModel extends conection{
         
         return $result;
     }
+
+
 }

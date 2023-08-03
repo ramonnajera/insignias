@@ -80,22 +80,24 @@
     <?php elseif(!isset($_SESSION['identidad'])):?>
 
     
-<section class="bg-[#EAF3F0]">
-    <p class="text-center text-gray-600 font-bold text-2xl py-5">RUTAS DE APRENDIZAJE</p>
+<section class="">
+    <p class="text-center text-gray-900 font-[Faktum] font-bold text-2xl py-5">RUTAS DE APRENDIZAJE</p>
     <div class="w-full mx-auto justify-items-center p-6 grid grid-cols-1 gap-4 md:grid-cols-3">
         <?php foreach($carreras as $carrera):?>
             <div class="w-60 col-span-1 flex flex-col bg-white border-2 p-2 rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
+                <!-- Heading -->
+                <!-- <div class="p-2">
+                <h2 class="font-bold font-[Faktum] text-lg mb-2 "><?=$carrera["carrera_nombre"]?></h2>
+                </div> -->
                 <!-- Image -->
                 <img class="h-40 object-cover rounded-xl" h-40 object-cover rounded-xl" src="<?=base_url?>assets/img/images/<?=$carrera["carrera_img"]?>" alt="">
                 <div class="p-2">
-                    <!-- Heading -->
-                    <h2 class="font-bold text-lg mb-2 "><?=$carrera["carrera_nombre"]?></h2>
                     <!-- Description -->
-                    <p class="text-sm text-gray-600 line-clamp-3"><?=$carrera["carrera_descripcion"]?></p>
-                </div>
+                    <!-- <p class="text-sm  text-gray-600 line-clamp-3"><?=$carrera["carrera_descripcion"]?></p>
+                </div> -->
                 <!-- CTA -->
-                <div class="flex flex-wrap mt-auto pt-3 text-xs">
-                <a role='button' href='<?=base_url?>Curso/all?id=<?=$carrera["carrera_id"]?>' class="btn btn-primary">Ver cursos</a>
+                <div class="flex mt-auto pt-3 text-xs justify-items-end">
+                <a role='button' href='<?=base_url?>Curso/all?id=<?=$carrera["carrera_id"]?>' class="btn btn-primary ">Ver cursos</a>
                 </div>
             </div>
         <?php endforeach;?>

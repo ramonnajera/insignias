@@ -11,9 +11,7 @@
 
     <style type="text/tailwindcss">
     @layer utilities {
-        .bg-uach{
-            background-color: #371e49;
-        }
+       
         .social {
             cursor: pointer;
             border-radius: 9999px;
@@ -22,28 +20,32 @@
             transition-duration: 300ms;
         }
         .btn{
-            @apply px-4 py-2 focus:ring-4 shadow-lg transform active:scale-75 transition-transform ease-in-out font-medium rounded-md;
+            @apply px-4 py-2 focus:ring-4 shadow-lg transform active:scale-75 transition-transform ease-in-out font-medium rounded-sm;
         }
         .btn-primary{
-            @apply bg-purple-600 hover:bg-purple-700 text-white outline-none;
+            @apply bg-[#D5175E] hover:bg-pink-400 text-white outline-none;
         }
         .btn-secundary{
-            @apply border-2 border-neutral-800 text-neutral-800 outline-none hover:border-neutral-800 hover:bg-neutral-500 hover:bg-opacity-10;
+            @apply border-2 border-neutral-800 text-neutral-800 outline-none hover:border-neutral-800 hover:bg-pink-400 hover:bg-opacity-10;
         }
         .btn-warning{
-            @apply border-2 bg-white text-red-600 border-red-600 outline-none hover:bg-red-600 hover:text-white;
+            @apply border-2 bg-[#D5175E] text-white  outline-none hover:bg-red-600 hover:text-white;
         }
         dialog::backdrop {
             @apply bg-neutral-700/50;
         }
         .input-text{
-            @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+            @apply bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-auto md:w-80 p-2.5;
         }
         .input-label{
-            @apply: block mb-2 text-sm font-medium text-gray-900 dark:text-white;
+            @apply:  mb-2 text-sm font-medium text-gray-900 ;
         }
         .fade-in-right {
             animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        }
+        @font-face {
+            font-family: 'Faktum';
+            src: url('../assets/fonts/faktum-wide-bold.otf') 
         }
 
         @keyframes fade-in-right {
@@ -79,11 +81,13 @@
     <title>Insignias UACH</title>
 </head>
 <body class="font-[Poppins] min-h-screen flex flex-col justify-start">
-<nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
+<nav class="bg-[#45484c] border-gray-200 py-2.5">
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
         <a href="<?=base_url?>" class="flex items-center">
             <!-- <img src="https://www.svgrepo.com/show/499962/music.svg" class="h-6 mr-3 sm:h-9" alt="Landwind Logo"> -->
-            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Insignias</span>
+            
+            <img src="https://teachers-xi.vercel.app/images/logo-white.png" class="h-6 mr-3 sm:h-9" >
+            <span class="ml-8 self-center text-xl font-semibold whitespace-nowrap dark:text-white">Insignias</span>
         </a>
         <div class="flex items-center lg:order-2">
             <div class="hidden mt-2 mr-4 sm:inline-block">
@@ -95,21 +99,23 @@
             <?php elseif(!isset($_SESSION['identidad'])):?>
             <button data-open-modal class="btn btn-primary mx-3">Login</button>
             <a href="<?=htmlspecialchars(base_url . "Page/registro")?>"
-                class="block py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-white">Registro</a>
-            <dialog data-modal>
-                <p class="text-2xl mb-5">Login</p>
+                class="block py-2 pl-3 pr-4 text-white border hover:bg-pink-400 hover:border-transparent ">Registro</a>
+            <dialog data-modal class="rounded-md col">
+                <p class="text-2xl mb-5 pt-10 text-center">Login</p>
                 <form action="<?=htmlspecialchars(base_url . "User/login")?>" method="post">
-                    <div class="mb-3">
+                    <div class="mb-3 px-5">
                         <label for="user" class="input-label">Correo</label>
                         <input type="email" id="user" name="user" class="input-text" placeholder="rnajera@uach.mx" required>
                     </div>
-                    <div class="mb-5">
+                    <div class="mb-5 px-5">
                         <label for="pass" class="input-label">Contraseña</label>
                         <input type="password" id="pass" name="pass" class="input-text" required>
                     </div>
-                    <div>
-                        <button data-close-modal class="btn btn-secundary">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Entrar</button>
+                    <div class=" pb-10 flex justify-center">
+                        <button data-close-modal class="btn  border border-gray-500 text-black hover:text-white hover:border-transparent hover:bg-[#D5175E] mx-5">Cerrar</button>
+                        <button type="submit" class="btn btn-primary mr-5">Entrar</button>
+                        
+                        
                     </div>
                 </form>
             </dialog>
@@ -136,33 +142,33 @@
                     <?php if(isset($_SESSION['admin'])):?>
                 <li>
                     <a href="<?=htmlspecialchars(base_url)?>"
-                        class="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
+                        class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] lg:p-0"
                         aria-current="page">Mis cursos</a>
                 </li>
                 <li>
                     <a href="<?=htmlspecialchars(base_url . "Page/carreras")?>"
-                        class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Carreras</a>
+                        class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] lg:p-0">Carreras</a>
                 </li>
                     <?php elseif(isset($_SESSION['user'])):?>
                         <li>
                             <a href="<?=htmlspecialchars(base_url)?>"
-                            class="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
+                            class="block py-2 pl-3 pr-4 text-white  rounded hover:text-[#D5175E] lg:p-0"
                             aria-current="page">Mis insignias</a>
                         </li>
                         <li>
                             <a href="<?=htmlspecialchars(base_url . "Curso/alls")?>"
-                                class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Todos los cursos</a>
+                                class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] lg:p-0">Todos los cursos</a>
                         </li>
                     <?php endif;?>
                 <?php elseif(!isset($_SESSION['identidad'])):?>
                 <li>
                     <a href="#"
-                        class="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
+                        class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] lg:p-0"
                         aria-current="page">Cursos</a>
                 </li>
                 <li>
                     <a href="#"
-                        class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Otros</a>
+                        class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] lg:p-0">Otros</a>
                 </li>
                 <?php endif;?>
             </ul>
