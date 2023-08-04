@@ -29,7 +29,7 @@
             @apply border-2 border-neutral-800 text-neutral-800 outline-none hover:border-neutral-800 hover:bg-pink-400 hover:bg-opacity-10;
         }
         .btn-warning{
-            @apply border-2 bg-[#D5175E] text-white  outline-none hover:bg-red-600 hover:text-white;
+            @apply border-2  text-white  outline-none hover:bg-red-600 hover:text-white;
         }
         dialog::backdrop {
             @apply bg-neutral-700/50;
@@ -87,7 +87,7 @@
             <!-- <img src="https://www.svgrepo.com/show/499962/music.svg" class="h-6 mr-3 sm:h-9" alt="Landwind Logo"> -->
             
             <img src="https://teachers-xi.vercel.app/images/logo-white.png" class="h-6 mr-3 sm:h-9" >
-            <span class="ml-8 self-center text-xl font-semibold whitespace-nowrap dark:text-white">Insignias</span>
+            <span class="ml-8 self-center text-xl font-[Faktum] whitespace-nowrap dark:text-white">Insignias</span>
         </a>
         <div class="flex items-center lg:order-2">
             <div class="hidden mt-2 mr-4 sm:inline-block">

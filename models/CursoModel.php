@@ -184,7 +184,7 @@ class CursoModel extends conection{
     }
 
     public function getAlls(){
-        $sql = "SELECT cursos.curso_id, curso_nombre, curso_descripcion, carrera_nombre, participantes.usuario_id FROM carreras 
+        $sql = "SELECT cursos.curso_id, curso_nombre, curso_descripcion, carrera_nombre, participantes.usuario_id, curso_img FROM carreras 
                 INNER JOIN cursos ON carreras.carrera_id = cursos.carrera_id 
                 LEFT JOIN participantes ON cursos.curso_id = participantes.curso_id;";
 
