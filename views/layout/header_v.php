@@ -142,33 +142,33 @@
                     <?php if(isset($_SESSION['admin'])):?>
                 <li>
                     <a href="<?=htmlspecialchars(base_url)?>"
-                        class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] lg:p-0"
+                        class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] font-[Faktum] lg:p-0"hover:text-[#D5175E] font-[Faktum]
                         aria-current="page">Mis cursos</a>
                 </li>
                 <li>
                     <a href="<?=htmlspecialchars(base_url . "Page/carreras")?>"
-                        class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] lg:p-0">Rutas de aprendizaje</a>
+                        class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] font-[Faktum] lg:p-0">Rutas de aprendizaje</a>
                 </li>
                     <?php elseif(isset($_SESSION['user'])):?>
                         <li>
                             <a href="<?=htmlspecialchars(base_url)?>"
-                            class="block py-2 pl-3 pr-4 text-white  rounded hover:text-[#D5175E] lg:p-0"
+                            class="block py-2 pl-3 pr-4 text-white  rounded hover:text-[#D5175E] font-[Faktum] lg:p-0"
                             aria-current="page">Mis insignias</a>
                         </li>
                         <li>
                             <a href="<?=htmlspecialchars(base_url . "Curso/alls")?>"
-                                class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] lg:p-0">Todos los cursos</a>
+                                class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] font-[Faktum] lg:p-0">Todos los cursos</a>
                         </li>
                     <?php endif;?>
                 <?php elseif(!isset($_SESSION['identidad'])):?>
                 <li>
                     <a href="#"
-                        class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] lg:p-0"
+                        class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] font-[Faktum] lg:p-0"
                         aria-current="page">Cursos</a>
                 </li>
                 <li>
                     <a href="#"
-                        class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] lg:p-0">Otros</a>
+                        class="block py-2 pl-3 pr-4 text-white rounded hover:text-[#D5175E] font-[Faktum] lg:p-0">Otros</a>
                 </li>
                 <?php endif;?>
             </ul>
