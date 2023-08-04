@@ -1,8 +1,8 @@
 <section class="bg-[#EAF3F0]">
     <p class="text-center text-gray-600 font-[Faktum] text-2xl py-5">LISTA DE CURSOS</p>
-    <div class="w-full mx-auto justify-items-center p-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+    <div class="w-full mx-auto justify-items-center p-6 grid grid-cols-1 gap-4 md:grid-cols-4">
         <?php foreach($cursos as $curso):?>
-            <div class="w-80 col-span-1 flex flex-col bg-transparent rounded-sm transform transition-all hover:-translate-y-2 duration-300  ">
+            <div class="w-80 col-span-1 flex flex-col bg-transparent rounded-sm transform transition-all hover:-translate-y-2 duration-300 py-5 ">
                 
                 <!-- Card Image -->
                 <div class="">
@@ -18,7 +18,7 @@
                     <!-- <p class="px-4 text-sm text-gray-600 line-clamp-3"><?=$curso["curso_descripcion"]?></p> -->
                 </div>
                 <!-- CTA -->
-                <div class="flex flex-wrap mt-auto">
+                <div class="flex flex-wrap mt-auto justify-center">
                     <!-- <p class="px-4 mb-2 ">Ruta de aprendizaje:</p> -->
                     <!-- <p class="px-4 py-2 bg-gray-200 text-gray-800 text-sm font-medium rounded-full"><?=$curso["carrera_nombre"]?></p> -->
 

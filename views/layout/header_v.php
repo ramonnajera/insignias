@@ -97,11 +97,11 @@
             <?php if(isset($_SESSION['identidad'])):?>
             <a href="<?=htmlspecialchars(base_url . "User/logout")?>" class="btn btn-warning mx-3"><i class="fa-solid fa-arrow-right-from-bracket"></i> Salir</a>
             <?php elseif(!isset($_SESSION['identidad'])):?>
-            <button data-open-modal class="btn btn-primary mx-3">Login</button>
+            <button data-open-modal class="btn btn-primary mx-3">Ingresar</button>
             <a href="<?=htmlspecialchars(base_url . "Page/registro")?>"
                 class="block py-2 pl-3 pr-4 text-white border hover:bg-pink-400 hover:border-transparent ">Registro</a>
             <dialog data-modal class="rounded-md col">
-                <p class="text-2xl mb-5 pt-10 text-center">Login</p>
+                <p class="text-2xl mb-5 pt-10 text-center font-[Faktum]">Ingresar</p>
                 <form action="<?=htmlspecialchars(base_url . "User/login")?>" method="post">
                     <div class="mb-3 px-5">
                         <label for="user" class="input-label">Correo</label>
