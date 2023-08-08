@@ -79,6 +79,8 @@
     </style>
     
     <title>Insignias UACH</title>
+    <link rel="icon" href="../../assets/img/favicon.ico">
+
 </head>
 <body class="font-[Poppins] min-h-screen flex flex-col justify-start">
 <nav class="bg-[#45484c] border-gray-200 py-2.5">
