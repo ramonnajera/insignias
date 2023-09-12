@@ -5,9 +5,7 @@
             <div class="w-80 col-span-1 flex flex-col bg-transparent rounded-sm transform transition-all hover:-translate-y-2 duration-300 py-5 ">
                 
                 <!-- Card Image -->
-                <div class="">
-
-            
+                <div class="">          
                     <!-- Heading -->
                     <!-- <h2 class="px-4 font-[Faktum] text-lg mb-2 "><?=$curso["curso_nombre"]?></h2> -->
                     
